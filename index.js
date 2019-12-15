@@ -25,6 +25,7 @@ const AppTemplate =
         "</v-app-bar>" +
 
         "<v-container>" +
+        "<gear-select v-model='neck' :options='necks'></gear-select>" +
 
         "</v-container>" +
     "</v-content>" +
@@ -39,6 +40,8 @@ new Vue({
         }
     }),
     "data": () => ({
+        "neck": "18814",
+        "necks": Necks,
         "selectedStageIndex": 1,
         "stageList": [
             {"display": "P2",
