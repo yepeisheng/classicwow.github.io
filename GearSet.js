@@ -1,10 +1,10 @@
-const GearSetTemplate = "";
+const GearSetTemplate = '';
 
-Vue.component("GearSet", {
-    template: GearSetTemplate,
-    props: {
+Vue.component('GearSet', {
+  template: GearSetTemplate,
+  props: {
 
-    }
+  },
 });
 
 
