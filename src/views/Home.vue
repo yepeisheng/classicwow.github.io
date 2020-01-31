@@ -1,6 +1,6 @@
 <template>
-  <v-container fluid style="height: 100%;">
-    <v-row align="center" justify="center" style="height: 100%;">
+  <v-container fluid>
+    <v-row align="center" justify="center" style="margin-top:200px;">
       <v-col v-for="view in views" :key="view.path" class="col-lg-3 col-md-5">
         <v-card outlined @click="$router.push({ name: view.name })">
           <v-card-title>
