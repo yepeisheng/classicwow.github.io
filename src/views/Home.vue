@@ -4,9 +4,9 @@
       <v-col v-for="view in views" :key="view.path" class="col-lg-3 col-md-5">
         <v-card outlined @click="$router.push({ name: view.name })">
           <v-card-title>
-            <v-icon style="margin-right:10px;" x-large>{{
-              view.meta.icon
-            }}</v-icon>
+            <v-icon style="margin-right:10px;" x-large>
+              {{ view.meta.icon }}
+            </v-icon>
             {{ view.meta.title }}
           </v-card-title>
           <v-card-text>
