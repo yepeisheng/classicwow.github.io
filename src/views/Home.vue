@@ -1,25 +1,16 @@
 <template>
-  <v-container style="height: 100%;">
+  <v-container fluid style="height: 100%;">
     <v-row align="center" justify="center" style="height: 100%;">
-      <v-col>
-        <v-card outlined @click="goto({name: 'gear'})" height="500">
+      <v-col v-for="view in views" :key="view.path" class="col-lg-3 col-md-5">
+        <v-card outlined @click="$router.push({ name: view.name })">
           <v-card-title>
-            <v-icon x-large>mdi-home</v-icon>
-            配装比较
+            <v-icon style="margin-right:10px;" x-large>{{
+              view.meta.icon
+            }}</v-icon>
+            {{ view.meta.title }}
           </v-card-title>
           <v-card-text>
-            比较不同配装之间的面板差距
-          </v-card-text>
-        </v-card>
-      </v-col>
-
-      <v-col>
-        <v-card outlined @click="goto({name: 'epgp'})" height="500">
-          <v-card-title>
-            EPGP模拟
-          </v-card-title>
-          <v-card-text>
-            模拟EPGP
+            {{ view.meta.description }}
           </v-card-text>
         </v-card>
       </v-col>
@@ -28,14 +19,14 @@
 </template>
 
 <script>
-  import { VContainer, VCard, VCardTitle, VIcon} from "vuetify/lib";
-  export default {
-    name: "Home",
-    components: {VContainer, VCard, VCardTitle, VIcon},
-    methods: {
-      goto(target) {
-        this.$router.push(target)
-      }
+import { VContainer, VCard, VCardTitle, VIcon } from "vuetify/lib";
+export default {
+  name: "Home",
+  components: { VContainer, VCard, VCardTitle, VIcon },
+  computed: {
+    views() {
+      return this.$router.options.routes.filter(r => !r.meta.isMain);
     }
   }
+};
 </script>
