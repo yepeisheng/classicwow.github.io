@@ -5,6 +5,8 @@ import App from "./App.vue";
 import Home from "./views/Home";
 import GearSetCompare from "./views/GearSetCompare";
 import EPGPSimulate from "./views/EPGPSimulate";
+import "vuetify/dist/vuetify.min.css";
+
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(Vuetify);
@@ -48,7 +50,12 @@ new Vue({
   router,
   vuetify: new Vuetify({
     theme: {
-      dark: true
+      dark: true,
+      themes: {
+        dark: {
+          primary: "#8C1616"
+        }
+      }
     }
   }),
   render: h => h(App)

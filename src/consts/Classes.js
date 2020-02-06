@@ -5,7 +5,7 @@ export default [
   { display: "德鲁伊", color: "#ff7c0a" },
   { display: "猎人", color: "#aad372" },
   { display: "圣骑士", color: "#f48cba" },
-  { display: "盗贼", color: "#fff468" },
-  { display: "萨满", color: "#2359ff" },
+  { display: "潜行者", color: "#fff468" },
+  { display: "萨满祭司", color: "#2359ff" },
   { display: "战士", color: "#c69b6d" }
 ];
