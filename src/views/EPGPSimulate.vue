@@ -10,6 +10,7 @@
           item-value="roster"
         >
         </v-select>
+        {{ records[0].timestamp }}
         <epgp-table :members="record"></epgp-table>
       </v-content>
     </v-row>
@@ -24,19 +25,22 @@ export default {
   name: "EPGPSimulate",
   components: { VContainer, VContent, EpgpTable },
   data() {
-    const records = members.map(m => ({
-      roster: m.roster
-        .filter(r => r.length === 6)
-        .map(r => ({
-          name: r[0],
-          class: r[1],
-          rank: r[2],
-          ep: r[3],
-          gp: r[4],
-          pr: r[5]
-        })),
-      timestamp: new Date(m.timestamp).toLocaleDateString()
-    }));
+    const records = members
+      .sort((m1, m2) => m2.timestamp - m1.timestamp)
+      .map(m => ({
+        roster: m.roster
+          .filter(r => r.length === 6)
+          .map(r => ({
+            name: r[0],
+            class: r[1],
+            rank: r[2],
+            ep: r[3],
+            gp: r[4],
+            pr: r[5]
+          })),
+        timestamp: new Date(m.timestamp * 1000).toLocaleDateString()
+      }));
+    console.log(records);
     return {
       records,
       record: records[0].roster

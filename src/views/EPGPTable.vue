@@ -74,7 +74,12 @@ export default {
   computed: {
     sortedMembers() {
       return this.members.concat().sort((m1, m2) => {
-        const compare = m1[this.sortBy] > m2[this.sortBy] ? 1 : -1;
+        let compare = 0;
+        if (m1[this.sortBy] === m2[this.sortBy]) {
+          compare = m1["pr"] > m2["pr"] ? 1 : -1;
+        } else {
+          compare = m1[this.sortBy] > m2[this.sortBy] ? 1 : -1;
+        }
         return this.ascend ? compare : -compare;
       });
     }
