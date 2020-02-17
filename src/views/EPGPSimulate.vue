@@ -37,7 +37,7 @@ export default {
             gp: r[4],
             pr: r[5]
           }))
-          .filter(r => r.rank === "主办"),
+          .filter(r => r.rank !== "黑骑" && r.rank !== "天牢"),
         timestamp: new Date(m.timestamp * 1000).toLocaleDateString()
       }));
     console.log(records);
