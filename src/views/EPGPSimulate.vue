@@ -10,7 +10,6 @@
           item-value="roster"
         >
         </v-select>
-        {{ records[0].timestamp }}
         <epgp-table :members="record"></epgp-table>
       </v-content>
     </v-row>
@@ -37,7 +36,8 @@ export default {
             ep: r[3],
             gp: r[4],
             pr: r[5]
-          })),
+          }))
+          .filter(r => r.rank === "主办"),
         timestamp: new Date(m.timestamp * 1000).toLocaleDateString()
       }));
     console.log(records);
