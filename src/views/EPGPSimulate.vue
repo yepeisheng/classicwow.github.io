@@ -10,7 +10,7 @@
           item-value="roster"
         >
         </v-select>
-        <epgp-table :members="record"></epgp-table>
+        <epgp-table :members="record" :extra-week="extraWeek"></epgp-table>
       </v-content>
     </v-row>
   </v-container>
@@ -37,11 +37,12 @@ export default {
             gp: r[4],
             pr: r[5]
           }))
-          .filter(r => r.rank !== "黑骑" && r.rank !== "天牢"),
+          .filter(r => r.rank !== "黑骑" && r.rank !== "天牢" && r.ep > 100),
         timestamp: new Date(m.timestamp * 1000).toLocaleDateString()
       }));
-    console.log(records);
     return {
+      dial: true,
+      extraWeek: 0,
       records,
       record: records[0].roster
     };
