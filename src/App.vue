@@ -2,7 +2,7 @@
   <v-app>
     <v-content>
       <v-app-bar>
-        <v-app-bar-nav-icon @click.stop="drawer = !drawer">
+        <v-app-bar-nav-icon color="primary" @click.stop="drawer = !drawer">
         </v-app-bar-nav-icon>
         <v-toolbar-title>
           {{ title }}
@@ -17,11 +17,13 @@
             @click="$router.push({ name: route.name })"
           >
             <v-list-item-icon>
-              <v-icon>{{ route.meta.icon }}</v-icon>
+              <v-icon color="primary">{{ route.meta.icon }}</v-icon>
             </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>
-                {{ route.meta.title }}
+                <span class="primary--text">
+                  {{ route.meta.title }}
+                </span>
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -36,7 +38,7 @@
               @click="$router.push({ name: route.name })"
             >
               <v-list-item-icon>
-                <v-icon>{{ route.meta.icon }}</v-icon>
+                <v-icon dark>{{ route.meta.icon }}</v-icon>
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title>

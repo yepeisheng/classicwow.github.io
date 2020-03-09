@@ -27,7 +27,7 @@
       </thead>
       <tbody>
         <tr v-for="member in sortedMembers" :key="member.name">
-          <td>{{ member.name }}</td>
+          <td :style="{ color: classes[member.class] }">{{ member.name }}</td>
           <td :style="{ color: classes[member.class] }">{{ member.class }}</td>
           <td>{{ member.rank }}</td>
           <td>{{ member.ep }}</td>

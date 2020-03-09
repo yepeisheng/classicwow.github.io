@@ -5,6 +5,8 @@ import App from "./App.vue";
 import Home from "./views/Home";
 import GearSetCompare from "./views/GearSetCompare";
 import EPGPSimulate from "./views/EPGPSimulate";
+import BlackList from "./views/BlackList";
+import GuildBank from "./views/GuildBank";
 import "vuetify/dist/vuetify.min.css";
 
 Vue.config.productionTip = false;
@@ -24,23 +26,43 @@ const router = new VueRouter({
       }
     },
     {
+      path: "/epgp",
+      name: "epgp",
+      component: EPGPSimulate,
+      meta: {
+        title: "EPGP",
+        icon: "mdi-alpha-e-box-outline",
+        description: "公会EPGP记录"
+      }
+    },
+    {
+      path: "/guild-bank",
+      name: "guild-bank",
+      component: GuildBank,
+      meta: {
+        title: "公会仓库",
+        icon: "mdi-warehouse",
+        description: "每周公会公示"
+      }
+    },
+    {
+      path: "/black-list",
+      name: "black-list",
+      component: BlackList,
+      meta: {
+        title: "野团黑名单",
+        icon: "mdi-playlist-remove",
+        description: "根据会员提供的黑白名单"
+      }
+    },
+    {
       path: "/gear-set-compare",
       name: "gear",
       component: GearSetCompare,
       meta: {
         title: "配装比较",
         icon: "mdi-chart-bar",
-        description: "比较不同配装之间的面板差距"
-      }
-    },
-    {
-      path: "/epgp-simulate",
-      name: "epgp",
-      component: EPGPSimulate,
-      meta: {
-        title: "EPGP模拟",
-        icon: "mdi-alpha-e-box-outline",
-        description: "模拟在不同的拾取策略下的EPGP的变化"
+        description: "比较不同配装之间的面板差距, coming soon..."
       }
     }
   ]
@@ -53,7 +75,7 @@ new Vue({
       dark: true,
       themes: {
         dark: {
-          primary: "#8C1616"
+          primary: "#DA8903"
         }
       }
     }
