@@ -35,10 +35,12 @@ export default {
       blacklist: [
         { title: "公会闲云野鹤", content: "抽成10%-20%补贴" },
         {
-          title: "韵华",
-          content: "3团4团为亲友黑心DKP团，4500血战士进金团就为补贴"
+          title: "太阳牌G团（公会Floating Cloud)",
+          content: "毛团"
         },
-        { title: "赌神号", content: "赌博G团，账目不清" }
+        { title: "有德牌G团", content: "毛团" },
+        { title: "有何牌G团", content: "毛团" },
+        { title: "咆哮德G团", content: "毛团" },
       ]
     };
   }
