@@ -16,6 +16,7 @@ export default {
   data() {
     return {
       records: [
+        { date: "2020/03/22", img: "guild-bank/2020-03-22.jpg" },
         { date: "2020/03/16", img: "guild-bank/2020-03-16.jpg" },
         { date: "2020/03/09", img: "guild-bank/2020-03-09.png" }
       ]
