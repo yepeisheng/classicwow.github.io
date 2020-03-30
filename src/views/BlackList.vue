@@ -51,9 +51,34 @@ export default {
           title: "教父公会",
           content: "BWL打不完"
         },
-        { title: "渣男团", content: "MC指挥双倍，极其墨迹" }
+        { title: "渣男团", content: "MC指挥双倍，极其墨迹" },
+        {
+          title: "公会鲜血荣耀",
+          content:
+            "BWL G团，每次罚款都是说说混过去最后都不罚,进本说得好听，第一次100，第二次200，第三次400，LR宁神，坦克拉不好，奶倒T，各种重复犯错最后都没罚"
+        },
+        {
+          title: "公会梦境之地",
+          content:
+            "BWL G团，自己带的公会班底坦克和治疗都抠脚的不行，一直犯错，一直不提罚款，但是外人犯错就开始提罚款"
+        },
+        {
+          title: "漫步云端",
+          content: "菜的抠脚，MC开荒3天打不过老9，至今MC团还是磕磕碰碰"
+        },
+        {
+          title: "玩家ID: 闷头一刀",
+          content: "MC老1前故意ADD带boss团灭退队一气呵成"
+        }
       ],
-      whitelist: [{ title: "乱劈材", content: "坦克强素质高" }]
+      whitelist: [
+        { title: "乱劈材", content: "坦克强素质高" },
+        {
+          title: "公会杀戮",
+          content:
+            "良心MC团，边打边拍，前面法术能量拍了2050，后面又出了，拍低了的话就给买了第一个的人补差价"
+        }
+      ]
     };
   }
 };
