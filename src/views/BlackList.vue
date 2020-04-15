@@ -2,7 +2,7 @@
   <v-row align="center" justify="center">
     <v-col class="col-sm-8 col-xs-11 col-md-5">
       <h1>维希度斯黑名单 - 避雷</h1>
-      <v-list style="margin-top:50px; margin-bottom: 100px;">
+      <v-list three-line style="margin-top:50px; margin-bottom: 100px;">
         <v-list-item v-for="(black, idx) in blacklist" :key="idx" two-line>
           <v-list-item-content>
             <v-list-item-title>{{ black.title }}</v-list-item-title>
@@ -11,7 +11,7 @@
         </v-list-item>
       </v-list>
       <h1>维希度斯白名单 - 强力团</h1>
-      <v-list style="margin-top:50px;">
+      <v-list three-line style="margin-top:50px;">
         <v-list-item v-for="(white, idx) in whitelist" :key="idx" two-line>
           <v-list-item-content>
             <v-list-item-title>{{ white.title }}</v-list-item-title>
@@ -52,6 +52,16 @@ export default {
           content: "BWL打不完"
         },
         { title: "渣男团", content: "MC指挥双倍，极其墨迹" },
+        {
+          title: "不负韶华公会",
+          content:
+            "MC团，菜的一批，只奶自己公会DPS还不承认，自己人ADD了灭了几波不提扣钱"
+        },
+        {
+          title: "逆行者公会",
+          content:
+            "BWL指挥垃圾，小红龙灭了3，4次在外人小团队的指挥下才过，最后打了5个小时还有脸收指挥补贴"
+        },
         {
           title: "公会鲜血荣耀",
           content:
