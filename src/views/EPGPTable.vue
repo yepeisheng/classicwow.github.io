@@ -6,6 +6,7 @@
           <th v-for="col in cols" :key="col.propName" class="text-left">
             {{ col.text }}
             <v-btn
+              :disabled="showGPDiff"
               small
               text
               icon
@@ -23,6 +24,7 @@
               }}</v-icon>
             </v-btn>
           </th>
+          <th v-if="showGPDiff">+GP</th>
         </tr>
       </thead>
       <tbody>
@@ -33,6 +35,7 @@
           <td>{{ member.ep }}</td>
           <td>{{ member.gp }}</td>
           <td>{{ member.pr }}</td>
+          <td v-if="showGPDiff">{{ member.plusGP }}</td>
         </tr>
       </tbody>
     </template>
@@ -40,7 +43,7 @@
 </template>
 <script>
 import classes from "@/consts/Classes";
-import { VSimpleTable, VIcon } from "vuetify/lib";
+import { VToolbar, VSimpleTable, VIcon } from "vuetify/lib";
 export default {
   name: "EpgpTable",
   components: {
@@ -51,6 +54,14 @@ export default {
     members: {
       type: Array,
       required: true
+    },
+    classFilter: {
+      type: Array,
+      default: () => []
+    },
+    showGPDiff: {
+      type: Boolean,
+      default: false
     }
   },
   data: () => {
@@ -73,15 +84,38 @@ export default {
   },
   computed: {
     sortedMembers() {
-      return this.members.concat().sort((m1, m2) => {
-        let compare = 0;
-        if (m1[this.sortBy] === m2[this.sortBy]) {
-          compare = m1["pr"] > m2["pr"] ? 1 : -1;
-        } else {
-          compare = m1[this.sortBy] > m2[this.sortBy] ? 1 : -1;
+      const filterSet = new Set(this.classFilter);
+      const sorted = this.members
+        .concat()
+        .filter(m => filterSet.size === 0 || filterSet.has(m.class))
+        .sort((m1, m2) => {
+          let compare = 0;
+          if (m1[this.sortBy] === m2[this.sortBy]) {
+            compare = m1["pr"] > m2["pr"] ? 1 : -1;
+          } else {
+            compare = m1[this.sortBy] > m2[this.sortBy] ? 1 : -1;
+          }
+          return this.ascend ? compare : -compare;
+        });
+
+      if (this.showGPDiff) {
+        for (let i = 0; i < sorted.length - 1; i++) {
+          sorted[i].plusGP = Math.round(
+            (sorted[i].ep + 115) /
+              ((sorted[i + 1].ep + 115) / sorted[i + 1].gp) -
+              sorted[i].gp
+          );
         }
-        return this.ascend ? compare : -compare;
-      });
+      }
+      return sorted;
+    }
+  },
+  watch: {
+    showGPDiff: function() {
+      if (this.showGPDiff === true) {
+        this.sortBy = "pr";
+        this.ascend = false;
+      }
     }
   },
   methods: {
